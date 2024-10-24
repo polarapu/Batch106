@@ -1,0 +1,43 @@
+git config --global user.name "Prasad Polarapu"
+git config --global user.email "devopstraining2015@gmail.com"
+git config --list
+
+
+git clone https://github.com/polarapu/Batch106.git
+ls
+cd Batch106
+ls
+touch file1git show cid
+ls
+git status
+git add file1
+git status
+git commit -m "sample file1"
+git status
+git log
+git show
+git show cid
+
+
+=====================
+touch file2 file3 file4
+ls
+git status
+git add file2 file3 file4
+or
+git add .
+or
+git add *
+or
+git add -A
+git status
+git commit -m "sample commit"
+git status
+git log
+git push
+
+
+
+
+
+
