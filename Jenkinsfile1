@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+    tools {
+        // Install the Maven version configured as "M3" and add it to the path.
+        maven "Maven"
+    }
+
+    stages {
+        stage('SCM-clone') {
+            steps {
+                git credentialsId: '2d448a0e-ebb2-4758-9fb6-2437cb9d1650', url: 'https://github.com/polarapu/maven-project1.git'
+            }
+        }
+        stage('Mvn-build') {
+            steps {
+                sh "mvn clean install"
+            }
+        }
+        stage('Tomcat-deploy') {
+            steps {
+                deploy adapters: [tomcat9(credentialsId: 'cd8a3480-f2cb-4d83-9a08-4a4516651628', path: '', url: 'http://192.168.75.128:8081/')], contextPath: 'devops106.war', war: '**/*.war'
+            }
+        }
+    }
+}
